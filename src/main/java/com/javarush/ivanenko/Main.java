@@ -7,19 +7,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Path path;
+        Path resultPath;
 
-        System.out.print(Messages.GREETING + Messages.ARROW);
-        String input = scanner.nextLine().trim();
+        path = GetPaths.getPaths(scanner, 1);
+        resultPath = GetPaths.getPaths(scanner, 2);
+        System.out.println("Путь к файлу для работы: " + path);
+        System.out.println("Путь к файлу для сохранения: " + resultPath + "\n");
 
-        if (input.isEmpty()) {
-            path = Path.of("text/dict.txt"); // путь по умолчанию
-            System.out.println(Messages.DEFAULT_PATH_NOTICE);
-        } else {
-            path = Path.of(input);
-        }
-
-        System.out.println("Путь к файлу: " + path.toAbsolutePath() + "\n");
-
-        MenuWork.Menu(path, scanner);
+        MenuWork.Menu(path, scanner, resultPath);
     }
 }

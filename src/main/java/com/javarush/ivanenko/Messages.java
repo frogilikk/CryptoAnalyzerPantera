@@ -16,13 +16,17 @@ public class Messages {
     };
 
     public static final String ARROW = "\n> ";
-    public static final String GREETING = "Добро пожаловать в CryptoAnalyzer по шифру Цезаря, введите путь к файлу: " +
+    public static final String GREETING = "Добро пожаловать в CryptoAnalyzer по шифру Цезаря, введи путь к файлу с которого брать текст: " +
             "(если пропустить будет дефолтный)";
-    public static final String DEFAULT_PATH_NOTICE = "Вы не указали путь, использую стандартный:";
+    public static final String PATH_RESULT= "Введи путь к файлу в который сохранить текст: " +
+            "(если не вводить будет дефолтный)";
+    public static final String DEFAULT_PATH_NOTICE = "Вы не указали путь, использую стандартный";
     public static final String ENCRYPTION_KEY_PROMPT = "\nДавай зашифруем твой файл, путь у нас есть — остался лишь ключ." +
             " Введи его ниже: (он должен быть от 1 до " + (ALPHABET.length - 1) + ")";
     public static final String INVALID_KEY_ERROR = "Введен неверный ключ";
-    public static final String MENU = "1. Шифрование\n" +
+    public static final String MENU =
+            "Меню:\n" +
+            "1. Шифрование\n" +
             "2. Расшифровка с ключом\n" +
             "3. Brute force\n" +
             "0. Выход";
