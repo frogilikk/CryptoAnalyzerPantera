@@ -12,7 +12,9 @@ public class GetPaths {
                 input = scanner.nextLine().trim();
 
                 if (input.isEmpty()) {
-                    System.out.println(Messages.DEFAULT_PATH_NOTICE + "\n");
+                    System.out.println(Messages.DEFAULT_PATH_NOTICE +
+                            " (доступный функционал ограницен, можно только шифровать, для полного функционала введите свой путь" +
+                            "\n");
                     Path path = Path.of("text/text.txt");
                     return path;
                 } else {

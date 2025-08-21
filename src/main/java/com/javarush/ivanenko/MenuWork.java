@@ -1,8 +1,5 @@
 package com.javarush.ivanenko;
 
-import com.javarush.khmelov.constant.Alphabet;
-
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,14 +18,17 @@ public class MenuWork {
     }
 
     public static void Switch(int num, Scanner scanner, Path path, Path resultPath) {
+        int key;
         switch (num) {
             case (1):
                 System.out.print(Messages.ENCRYPTION_KEY_PROMPT + Messages.ARROW);
-                int key = scanner.nextInt();
+                key = scanner.nextInt();
                 Encrypt.encrypt(key, path, resultPath);
                 break;
             case (2):
-
+                System.out.print(Messages.DECRYPTION_KEY_PROMPT + Messages.ARROW);
+                key = scanner.nextInt();
+                Decipher.decipher(key, path, resultPath);
                 break;
             case (3):
                 break;

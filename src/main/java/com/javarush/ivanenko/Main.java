@@ -11,8 +11,8 @@ public class Main {
 
         path = GetPaths.getPaths(scanner, 1);
         resultPath = GetPaths.getPaths(scanner, 2);
-        System.out.println("Путь к файлу для работы: " + path);
-        System.out.println("Путь к файлу для сохранения: " + resultPath + "\n");
+        System.out.println("Путь к файлу для работы: " + path.toAbsolutePath());
+        System.out.println("Путь к файлу для сохранения: " + resultPath.toAbsolutePath() + "\n");
 
         MenuWork.Menu(path, scanner, resultPath);
     }

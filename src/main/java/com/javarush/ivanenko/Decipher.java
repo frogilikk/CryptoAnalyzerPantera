@@ -7,8 +7,8 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Encrypt {
-    public static void encrypt(int key, Path path, Path resultPath) {
+public class Decipher {
+    public static void decipher(int key, Path path, Path resultPath) {
         List<String> source;
         List<String> encryptedSource = new ArrayList<>();
         char[] keyAlphabet = new char[Messages.ALPHABET.length];
@@ -24,9 +24,9 @@ public class Encrypt {
                     String line = source.get(i);
                     StringBuilder builder = new StringBuilder();
                     for (char ch : line.toCharArray()) {
-                        int index = new String(Messages.ALPHABET).indexOf(ch);
+                        int index = new String(keyAlphabet).indexOf(ch);
                         if (index != -1) {
-                            builder.append(keyAlphabet[index]);
+                            builder.append(Messages.ALPHABET[index]);
                         } else {
                             builder.append(ch);
                         }
