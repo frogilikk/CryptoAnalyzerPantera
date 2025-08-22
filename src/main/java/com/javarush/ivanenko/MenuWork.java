@@ -10,7 +10,7 @@ public class MenuWork {
     public static void Menu(Path path, Scanner scanner, Path resultPath) {
         System.out.println(Messages.MENU + "\n");
         while (true) {
-            System.out.print(Messages.MENU_PROMPT + Messages.ARROW);
+            System.out.print("\n" + Messages.MENU_PROMPT + Messages.ARROW);
             int num = scanner.nextInt();
 
             Switch(num, scanner, path, resultPath);
@@ -31,6 +31,7 @@ public class MenuWork {
                 Decipher.decipher(key, path, resultPath);
                 break;
             case (3):
+                BruteForceSearch.bruteForce(path, resultPath);
                 break;
             case (0):
                 System.exit(0);
@@ -38,5 +39,13 @@ public class MenuWork {
             default:
                 System.out.println("Введен не верный номер, попробуй ещё раз");
         }
+    }
+
+    public static char[] keyAlphabet(int key) {
+        char[] keyAlphabet = new char[Messages.ALPHABET.length];
+        for (int i = 0; i < Messages.ALPHABET.length; i++) {
+            keyAlphabet[i] = Messages.ALPHABET[(i + key) % Messages.ALPHABET.length];
+        }
+        return keyAlphabet;
     }
 }
