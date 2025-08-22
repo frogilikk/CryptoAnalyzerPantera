@@ -1,26 +1,26 @@
-package com.javarush.ivanenko;
+package com.javarush.ivanenko.core;
+
+import com.javarush.ivanenko.io.Messages;
+import com.javarush.ivanenko.io.FileManager;
 
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BruteForceSearch {
-    public static void bruteForce(Path path, Path resultPath) {
-        try {
+public class BruteForce {
+    public static void bruteForce(Path path, Path resultPath) throws IOException {
             List<String> commonWords = List.of(
-                    "и", "в", "не", "на", "я", "быть", "с", "он", "что", "а",
-                    "это", "этот", "по", "к", "но"
+                              "и", "в", "не", "на", "я", "быть", "с", "он", "что", "а",
+                              "это", "этот", "по", "к", "но"
             );
 
-            List<String> source = Files.readAllLines(path);
+            List<String> source = FileManager.read(path);
             List<String> decryptedSource = new ArrayList<>();
             int[] scores = new int[Messages.ALPHABET.length];
 
             for (int shift = 0; shift < Messages.ALPHABET.length; shift++) {
-                char[] keyAlphabet = MenuWork.keyAlphabet(shift);
+                char[] keyAlphabet = CaesarCipher.keyAlphabet(shift);
 
                 for (String line : source) {
                     StringBuilder builder = new StringBuilder();
@@ -52,7 +52,7 @@ public class BruteForceSearch {
                 }
             }
 
-            char[] finalAlphabet = MenuWork.keyAlphabet(bestKey);
+            char[] finalAlphabet = CaesarCipher.keyAlphabet(bestKey);
             for (String line : source) {
                 StringBuilder builder = new StringBuilder();
                 for (char ch : line.toCharArray()) {
@@ -66,14 +66,6 @@ public class BruteForceSearch {
                 decryptedSource.add(builder.toString());
             }
 
-            if (Files.exists(resultPath)) {
-                Files.delete(resultPath);
-            }
-            Files.write(resultPath, decryptedSource, StandardOpenOption.CREATE);
-
-            System.out.println("Лучший ключ: " + bestKey);
-        } catch (IOException e) {
-            System.out.println(e);
-        }
+            FileManager.write(resultPath, decryptedSource);
     }
 }

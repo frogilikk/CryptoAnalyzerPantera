@@ -7,7 +7,7 @@ import com.javarush.khmelov.view.picocli.PicocliApp;
 
 public class PicocliRunner {
     public static void main(String[] args) {
-        //app build
+        //com.javarush.ivanenko.app build
         MainController mainController = new MainController();
         PicocliApp application = new PicocliApp(mainController);
 

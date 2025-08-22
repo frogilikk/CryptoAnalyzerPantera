@@ -1,4 +1,7 @@
-package com.javarush.ivanenko;
+package com.javarush.ivanenko.app;
+
+import com.javarush.ivanenko.io.GetPaths;
+import com.javarush.ivanenko.core.MenuWork;
 
 import java.nio.file.Path;
 import java.util.Scanner;
