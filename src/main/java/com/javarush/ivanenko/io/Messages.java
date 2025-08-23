@@ -27,7 +27,11 @@ public class Messages {
     public static final String INVALID_NUMBER = "Введен не верный номер, попробуй ещё раз";
     public static final String ENCRYPTION_KEY_PROMPT = "\nДавай зашифруем твой файл, путь у нас есть — остался лишь ключ." +
                       " Введи его ниже: (он должен быть от 1 до " + (ALPHABET.length - 1) + ")";
-    public static final String DECRYPTION_KEY_PROMPT = "\nДавай расшифруемтвой файл, путь у нас есть - остался ключ." +
+    public static final String DECRYPTION_KEY_PROMPT = "\nДавай расшифруем твой файл, путь у нас есть - остался ключ." +
+                      " Введи его ниже: (он должен быть от 1 до " + (ALPHABET.length - 1) + ")";
+    public static final String ENCRYPTION_KEY_PROMPT_CONSOLE = "\nДавай зашифруем твой текст нам нужен ключ." +
+                      " Введи его ниже: (он должен быть от 1 до " + (ALPHABET.length - 1) + ")";
+    public static final String DECRYPTION_KEY_PROMPT_CONSOLE = "\nДавай расшифруем твой текст нам нужен ключ." +
                       " Введи его ниже: (он должен быть от 1 до " + (ALPHABET.length - 1) + ")";
     public static final String INVALID_KEY_ERROR = "Введен неверный ключ";
     public static final String MENU =
@@ -36,6 +40,17 @@ public class Messages {
                                         "2. Расшифровка с ключом\n" +
                                         "3. Brute force\n" +
                                         "4. Изменить пути\n" +
+                                        "5. Посмотреть пути\n" +
+                                        "6. Переключиться в консольный режим\n" +
+                                        "0. Выход";
+    public static final String MENU_CONSOLE_MODE =
+                      "Меню:\n" +
+                                        "1. Шифрование\n" +
+                                        "2. Расшифровка с ключом\n" +
+                                        "3. Brute force\n" +
+                                        "4. Изменить пути\n" +
+                                        "5. Посмотреть пути\n" +
+                                        "6. Переключиться в файловый режим\n" +
                                         "0. Выход";
     public static final String MENU_PROMPT = "Выбери пункт:";
 }

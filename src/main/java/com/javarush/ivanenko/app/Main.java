@@ -14,7 +14,6 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         System.out.println(Messages.GREETING);
         path = GetPaths.getPaths(scanner, 1);
         if (!Files.exists(path)) {

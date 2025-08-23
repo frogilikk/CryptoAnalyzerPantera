@@ -1,4 +1,4 @@
-package com.javarush.ivanenko.core;
+package com.javarush.ivanenko.core.pathsMode;
 
 import com.javarush.ivanenko.io.Messages;
 import com.javarush.ivanenko.io.FileManager;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BruteForce {
-    private static List<String> commonWords = List.of(
+    private static final List<String> commonWords = List.of(
                       "не", "на","быть", "он", "что",
                       "это", "этот", "по", "но", "как"
     );

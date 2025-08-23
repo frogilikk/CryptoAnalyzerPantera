@@ -1,4 +1,4 @@
-package com.javarush.ivanenko.core;
+package com.javarush.ivanenko.core.pathsMode;
 
 import com.javarush.ivanenko.io.Messages;
 import com.javarush.ivanenko.io.FileManager;
