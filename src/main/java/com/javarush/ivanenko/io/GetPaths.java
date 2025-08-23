@@ -1,5 +1,6 @@
 package com.javarush.ivanenko.io;
 
+import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.util.Scanner;
 
@@ -11,25 +12,40 @@ public class GetPaths {
                 System.out.print(Messages.GREETING + Messages.PATH_WORK + Messages.ARROW);
                 input = scanner.nextLine().trim();
 
+                Path path = Path.of("text/text.txt");
                 if (input.isEmpty()) {
                     System.out.println(Messages.DEFAULT_PATH_NOTICE + Messages.LOW_FUNCTIONALITY);
-                    Path path = Path.of("text/text.txt");
                     return path;
                 } else {
-                    return Path.of(input);
+                    try {
+                        return Path.of(input);
+                    } catch (InvalidPathException e) {
+                        System.out.println("Неверный путь" + input);
+                        System.out.println(Messages.DEFAULT_PATH_NOTICE);
+                        return path;
+                    }
                 }
+
             case 2:
                 System.out.print(Messages.PATH_RESULT + Messages.ARROW);
                 input = scanner.nextLine().trim();
 
+                Path path1 = Path.of("text/result.txt");
                 if (input.isEmpty()) {
                     System.out.println(Messages.DEFAULT_PATH_NOTICE + "\n");
-                    return Path.of("text/result.txt");
+                    return path1;
                 } else {
-                    return Path.of(input);
+                    try {
+                        return Path.of(input);
+                    } catch (InvalidPathException e) {
+                        System.out.println("Неверный путь" + input);
+                        System.out.println(Messages.DEFAULT_PATH_NOTICE);
+                        return path1;
+                    }
                 }
+
             default:
-                return null;
+                throw new IllegalArgumentException("Неверный номер пути: " + num);
         }
     }
 }
