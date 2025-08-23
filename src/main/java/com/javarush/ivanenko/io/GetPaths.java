@@ -9,7 +9,7 @@ public class GetPaths {
         String input;
         switch (num) {
             case 1:
-                System.out.print(Messages.GREETING + Messages.PATH_WORK + Messages.ARROW);
+                System.out.print(Messages.PATH_WORK + Messages.ARROW);
                 input = scanner.nextLine().trim();
 
                 Path path = Path.of("text/text.txt");

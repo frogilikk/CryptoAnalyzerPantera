@@ -21,7 +21,7 @@ public class Messages {
                       "(если пропустить будет дефолтный)";
     public static final String PATH_RESULT = "Введи путь к файлу в который сохранить текст: " +
                       "(если не вводить будет дефолтный)";
-    public static final String LOW_FUNCTIONALITY = " (доступный функционал ограницен, можно только шифровать," +
+    public static final String LOW_FUNCTIONALITY = " (доступный функционал ограничен, можно только шифровать," +
                       " для полного функционала введите свой путь)\n";
     public static final String DEFAULT_PATH_NOTICE = "Вы не указали путь, использую стандартный";
     public static final String INVALID_NUMBER = "Введен не верный номер, попробуй ещё раз";
@@ -35,6 +35,7 @@ public class Messages {
                                         "1. Шифрование\n" +
                                         "2. Расшифровка с ключом\n" +
                                         "3. Brute force\n" +
+                                        "4. Изменить пути\n" +
                                         "0. Выход";
     public static final String MENU_PROMPT = "Выбери пункт:";
 }

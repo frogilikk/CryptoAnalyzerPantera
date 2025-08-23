@@ -1,6 +1,8 @@
 package com.javarush.ivanenko.core;
 
+import com.javarush.ivanenko.app.Main;
 import com.javarush.ivanenko.io.FileManager;
+import com.javarush.ivanenko.io.GetPaths;
 import com.javarush.ivanenko.io.Messages;
 
 import java.io.IOException;
@@ -34,6 +36,9 @@ public class MenuWork {
                 break;
             case (3):
                 bruteForce(path, resultPath);
+                break;
+            case (4):
+                changePaths(scanner);
                 break;
             case (0):
                 System.exit(0);
@@ -70,6 +75,25 @@ public class MenuWork {
             FileManager.write(resultPath, BruteForce.bruteForce(path));
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private static void changePaths(Scanner scanner) {
+        scanner.nextLine();
+        Main.path = GetPaths.getPaths(scanner, 1);
+        System.out.print("Менять файл вывода? (y/n)" + Messages.ARROW);
+        String answer = scanner.nextLine().trim().toLowerCase();
+
+        switch (answer) {
+            case "y":
+                Main.resultPath = GetPaths.getPaths(scanner, 2);
+                break;
+            case "n":
+                System.out.println("Предыдущие сохранения не будут записаны.");
+                break;
+            default:
+                System.out.println("Неизвестный ответ. Используется путь по умолчанию.");
+                break;
         }
     }
 }

@@ -2,17 +2,20 @@ package com.javarush.ivanenko.app;
 
 import com.javarush.ivanenko.io.GetPaths;
 import com.javarush.ivanenko.core.MenuWork;
+import com.javarush.ivanenko.io.Messages;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Main {
+    public static Path path;
+    public static Path resultPath;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Path path;
-        Path resultPath;
 
+        System.out.println(Messages.GREETING);
         path = GetPaths.getPaths(scanner, 1);
         if (!Files.exists(path)) {
             System.out.println("Файл для работы не найден: " + path.toAbsolutePath());
