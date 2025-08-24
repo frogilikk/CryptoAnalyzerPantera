@@ -49,7 +49,7 @@ public class BruteForce {
                     }
                 }
 
-                String decryptedLine = builder.toString().toLowerCase();
+                String decryptedLine = builder.toString();
 
                 for (String word : commonWords) {
                     if (decryptedLine.contains(word)) {

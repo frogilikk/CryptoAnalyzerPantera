@@ -37,7 +37,7 @@ public class Messages {
                       "(если пропустить будет дефолтный)";
     public static final String PATH_RESULT = "Введи путь к файлу в который сохранить текст: " +
                       "(если не вводить будет дефолтный)";
-    public static final String LOW_FUNCTIONALITY = " (доступный функционал ограничен, можно только шифровать," +
+    public static final String LOW_FUNCTIONALITY = " (доступный функционал ограничен, можно только шифровать на русском," +
                       " для полного функционала введите свой путь)\n";
     public static final String DEFAULT_PATH_NOTICE = "Вы не указали путь, использую стандартный";
     public static final String INVALID_NUMBER = "Введен не верный номер, попробуй ещё раз";

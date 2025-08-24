@@ -12,7 +12,7 @@ public class GetPaths {
                 System.out.print(Messages.PATH_WORK + Messages.ARROW);
                 input = scanner.nextLine().trim();
 
-                Path path = Path.of("text/text.txt");
+                Path path = Path.of("src/main/java/com/javarush/ivanenko/text/textRU.txt");
                 if (input.isEmpty()) {
                     System.out.println(Messages.DEFAULT_PATH_NOTICE + Messages.LOW_FUNCTIONALITY);
                     return path;
@@ -30,7 +30,7 @@ public class GetPaths {
                 System.out.print(Messages.PATH_RESULT + Messages.ARROW);
                 input = scanner.nextLine().trim();
 
-                Path path1 = Path.of("text/result.txt");
+                Path path1 = Path.of("src/main/java/com/javarush/ivanenko/text/result.txt");
                 if (input.isEmpty()) {
                     System.out.println(Messages.DEFAULT_PATH_NOTICE + "\n");
                     return path1;
