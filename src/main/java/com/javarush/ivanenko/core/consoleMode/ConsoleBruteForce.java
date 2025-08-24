@@ -1,5 +1,6 @@
 package com.javarush.ivanenko.core.consoleMode;
 
+import com.javarush.ivanenko.core.MenuWork;
 import com.javarush.ivanenko.core.pathsMode.CaesarCipher;
 import com.javarush.ivanenko.io.Messages;
 
@@ -7,14 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConsoleBruteForce {
-    private static final List<String> commonWords = List.of(
-                      "и", "в", "во", "не", "на", "я", "быть", "с", "он", "что", "а",
-                      "это", "этот", "по", "к", "но", "как", "же", "или", "если",
-                      "мы", "вы", "они", "так", "у", "от", "до", "за", "из", "о",
-                      "со", "для", "то", "там", "тут"
-    );
+    private static List<String> commonWords;
 
     public static List<String> bruteForce(String source) {
+        if (MenuWork.language == 1) {
+            commonWords = List.of(
+                              "и", "в", "во", "не", "на", "я", "быть", "с", "он", "что", "а",
+                              "это", "этот", "по", "к", "но", "как", "же", "или", "если",
+                              "мы", "вы", "они", "так", "у", "от", "до", "за", "из", "о",
+                              "со", "для", "то", "там", "тут"
+            );
+        } else if (MenuWork.language == 2) {
+            commonWords = List.of(
+                              "the", "be", "to", "of", "and", "a", "in", "that", "have", "i",
+                              "it", "for", "not", "on", "with", "he", "as", "you", "do", "at",
+                              "this", "but", "his", "by", "from", "they", "we", "say", "her", "she"
+            );
+        }
         int[] scores = new int[Messages.ALPHABET.length];
         String alphabetStr = new String(Messages.ALPHABET);
 
@@ -24,7 +34,7 @@ public class ConsoleBruteForce {
             StringBuilder builder = new StringBuilder();
 
             for (char ch : source.toCharArray()) {
-                int index = new String(Messages.ALPHABET).indexOf(ch);
+                int index = alphabetStr.indexOf(ch);
                 if (index != -1) {
                     builder.append(keyAlphabet[index]);
                 } else {
@@ -32,7 +42,7 @@ public class ConsoleBruteForce {
                 }
             }
 
-            String decryptedLine = builder.toString().toLowerCase();
+            String decryptedLine = builder.toString();
 
             for (String word : commonWords) {
                 if (decryptedLine.contains(word)) {
@@ -45,6 +55,7 @@ public class ConsoleBruteForce {
 
         List<String> decryptedSource = decryptSource(source, bestKey, alphabetStr);
 
+        System.out.printf("🔑 Найден ключ: %d с %d совпадениями%n", bestKey, scores[bestKey]);
         return decryptedSource;
     }
 

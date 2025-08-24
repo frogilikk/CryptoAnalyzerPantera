@@ -1,5 +1,6 @@
 package com.javarush.ivanenko.core.pathsMode;
 
+import com.javarush.ivanenko.core.MenuWork;
 import com.javarush.ivanenko.io.Messages;
 import com.javarush.ivanenko.io.FileManager;
 
@@ -9,12 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BruteForce {
-    private static final List<String> commonWords = List.of(
-                      "не", "на","быть", "он", "что",
-                      "это", "этот", "по", "но", "как"
-    );
+    private static List<String> commonWords;
 
     public static List<String> bruteForce(Path path) throws IOException {
+        if (MenuWork.language == 1) {
+            commonWords = List.of(
+                              "не", "на","быть", "он", "что",
+                              "это", "этот", "по", "но", "как"
+            );
+        } else if (MenuWork.language == 2) {
+            commonWords = List.of(
+                              "the", "be", "to", "of", "and",
+                              "in", "that", "have", "it",
+                              "for", "not", "on", "with",
+                              "he", "as", "you", "do", "at"
+            );
+        }
         List<String> source = FileManager.read(path);
         int[] scores = new int[Messages.ALPHABET.length];
         String alphabetStr = new String(Messages.ALPHABET);
@@ -30,7 +41,7 @@ public class BruteForce {
                 StringBuilder builder = new StringBuilder();
 
                 for (char ch : line.toCharArray()) {
-                    int index = new String(Messages.ALPHABET).indexOf(ch);
+                    int index = alphabetStr.indexOf(ch);
                     if (index != -1) {
                         builder.append(keyAlphabet[index]);
                     } else {
