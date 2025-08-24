@@ -15,14 +15,12 @@ import java.util.*;
 
 public class MenuWork {
     public static int mode = 1;
+    public static int language = 1;
     public static int consoleDel = 0;
 
     public static void menu(Path path, Scanner scanner, Path resultPath) {
-        if (mode == 1) {
-            System.out.println(Messages.MENU + "\n");
-        } else if (mode == 2) {
-            System.out.println(Messages.MENU_CONSOLE_MODE);
-        }
+        checkMode();
+
         while (true) {
             System.out.print("\n" + Messages.MENU_PROMPT + Messages.ARROW);
             if (!scanner.hasNextInt()) {
@@ -70,10 +68,33 @@ public class MenuWork {
             case (6):
                 changeMode(path, scanner, resultPath);
                 break;
+            case (7):
+                changeLanguageDecryption(path, scanner, resultPath);
+                break;
             case (0):
                 System.exit(0);
             default:
                 System.out.println("Неверный пункт меню. Попробуйте снова.");
+        }
+    }
+
+    private static void checkMode() {
+        if (mode == 1) {
+            if (language == 1) {
+                System.out.println(Messages.MENU_RU + "\n");
+                Messages.ALPHABET = Messages.ALPHABET_RU;
+            } else if (language == 2) {
+                System.out.println(Messages.MENU_EN + "\n");
+                Messages.ALPHABET = Messages.ALPHABET_EN;
+            }
+        } else if (mode == 2) {
+            if (language == 1) {
+                System.out.println(Messages.MENU_CONSOLE_MODE_RU + "\n");
+                Messages.ALPHABET = Messages.ALPHABET_RU;
+            } else if (language == 2) {
+                System.out.println(Messages.MENU_CONSOLE_MODE_EN + "\n");
+                Messages.ALPHABET = Messages.ALPHABET_EN;
+            }
         }
     }
 
@@ -171,5 +192,15 @@ public class MenuWork {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private static void changeLanguageDecryption(Path path, Scanner scanner, Path resultPath) {
+        if(language == 1) {
+            language = 2;
+        } else if (language == 2) {
+            language = 1;
+        }
+        System.out.println(language);
+        MenuWork.menu(path, scanner, resultPath);
     }
 }

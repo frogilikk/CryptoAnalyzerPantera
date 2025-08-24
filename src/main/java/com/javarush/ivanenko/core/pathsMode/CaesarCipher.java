@@ -15,18 +15,19 @@ public class CaesarCipher {
         List<String> encryptedSource = new ArrayList<>();
         char[] keyAlphabet = keyAlphabet(key);
         String alphabetStr = new String(Messages.ALPHABET);
+        String keyAlphabetStr = new String(keyAlphabet);
         for (int i = 0; i < source.size(); i++) {
             String line = source.get(i);
             StringBuilder builder = new StringBuilder();
             for (char ch : line.toCharArray()) {
-                action(builder, keyAlphabet, alphabetStr, ch, move);
+                action(builder, keyAlphabet, alphabetStr, keyAlphabetStr, ch, move);
             }
             encryptedSource.add(builder.toString());
         }
         return encryptedSource;
     }
 
-    private static void action(StringBuilder builder, char[] keyAlphabet, String alphabetStr, char ch, int mode) {
+    private static void action(StringBuilder builder, char[] keyAlphabet, String alphabetStr, String keyAlphabetStr, char ch, int mode) {
         int index;
         switch (mode) {
             case 0:
@@ -34,7 +35,7 @@ public class CaesarCipher {
                 builder.append(index != -1 ? keyAlphabet[index] : ch);
                 break;
             case 1:
-                index = alphabetStr.indexOf(ch);
+                index = keyAlphabetStr.indexOf(ch);
                 builder.append(index != -1 ? Messages.ALPHABET[index] : ch);
                 break;
             default:
