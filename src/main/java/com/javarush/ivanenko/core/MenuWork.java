@@ -110,6 +110,7 @@ public class MenuWork {
             if (key > 0 && key < Messages.ALPHABET.length) {
                 try {
                     FileManager.write(resultPath, CaesarCipher.transform(key, path, mode));
+                    System.out.println("Результат сохранен,\nЕсли не сменить файл то сохранение будет заменено новым (чтобы поменять нажми 4)");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -118,12 +119,12 @@ public class MenuWork {
                 System.out.println("Недопустимый ключ. Попробуйте снова.");
             }
         }
-
     }
 
     private static void bruteForce(Path path, Path resultPath) {
         try {
             FileManager.write(resultPath, BruteForce.bruteForce(path));
+            System.out.println("Результат сохранен,\nЕсли не сменить файл то сохранение будет заменено новым (чтобы поменять нажми 4)");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -173,6 +174,7 @@ public class MenuWork {
             if (key > 0 && key < Messages.ALPHABET.length) {
                 try {
                     FileManager.consoleWrite(resultPath, ConsoleCaesarCipher.caesarCipher(key, source, mode));
+                    System.out.println("Результат сохранен,\nСледующие результаты будут в том же файле на новой строке");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -189,6 +191,7 @@ public class MenuWork {
         String source = scanner.nextLine();
         try {
             FileManager.consoleWrite(resultPath, ConsoleBruteForce.bruteForce(source));
+            System.out.println("Результат сохранен,\nСледующие результаты будут в том же файле на новой строке");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -55,7 +55,7 @@ public class ConsoleBruteForce {
 
         List<String> decryptedSource = decryptSource(source, bestKey, alphabetStr);
 
-        System.out.printf("🔑 Найден ключ: %d с %d совпадениями%n", bestKey, scores[bestKey]);
+        System.out.printf("Найден ключ: %d с %d совпадениями%n", Messages.ALPHABET.length - bestKey, scores[bestKey]);
         return decryptedSource;
     }
 
